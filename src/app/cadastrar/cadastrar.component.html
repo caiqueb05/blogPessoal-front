@@ -14,7 +14,7 @@
               name="nome"
               id="nome"
               placeholder="Seu nome"
-              type="text"
+              type="text" [(ngModel)]='user.nome'
             />
           </div>
 
@@ -25,7 +25,18 @@
               name="usuario"
               id="usuario"
               placeholder="Seu usuario"
-              type="text"
+              type="text" [(ngModel)]='user.usuario'
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Seu email"
+              type="text" [(ngModel)]='user.email'
             />
           </div>
 
@@ -36,7 +47,7 @@
               name="foto"
               id="foto"
               placeholder="Link da sua foto"
-              type="text"
+              type="text" [(ngModel)]='user.foto'
             />
           </div>
 
@@ -47,7 +58,7 @@
               name="senha"
               id="senha"
               placeholder="Seu Senha"
-              type="password"
+              type="password" (input)='confirmSenha($event)'
             />
           </div>
 
@@ -58,13 +69,13 @@
               name="confirmaSenha"
               id="confirmaSenha"
               placeholder="Confirme sua Senha"
-              type="password"
+              type="password" [(ngModel)]='user.senha'
             />
           </div>
 
           <div class="form-group">
             <label for="tipo">Tipo de Usuário</label>
-            <select name="tipo" id="tipo" class="form-control">
+            <select name="tipo" id="tipo" class="form-control" (change)='tipoUser($event)'>
               <option value="">Selecione um tipo de usuário:</option>
               <option value="normal">Normal</option>
               <option value="admin">Administrador</option>
@@ -73,7 +84,7 @@
 
           <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-danger mr-4" routerLink='/entrar'>Cancelar</button>
-            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <button type="submit" class="btn btn-success" (click)='cadastrar()'>Cadastrar</button>
           </div>
         </div>
       </div>
