@@ -29,7 +29,7 @@ export class TemaComponent implements OnInit {
   }
 
   cadastrar(){
-    //console.log(environment.token)
+    console.log(environment.token)
     this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
       this.tema = resp
       alert('Tema cadastrado com sucesso!')
@@ -43,5 +43,7 @@ export class TemaComponent implements OnInit {
       this.listaTemas = resp
     })
   }
+
+
 
 }
