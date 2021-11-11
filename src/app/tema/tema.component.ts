@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -26,10 +27,12 @@ export class TemaComponent implements OnInit {
     }
 
     this.findAllTemas()
+
+    this.temaService.refreshToken()
   }
 
   cadastrar(){
-    console.log(environment.token)
+    //console.log(environment.token)
     this.temaService.postTema(this.tema).subscribe((resp: Tema) => {
       this.tema = resp
       alert('Tema cadastrado com sucesso!')
@@ -43,7 +46,6 @@ export class TemaComponent implements OnInit {
       this.listaTemas = resp
     })
   }
-
 
 
 }

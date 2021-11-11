@@ -24,7 +24,7 @@ export class TemaService {
   }
 
   postTema(tema: Tema): Observable<Tema>{
-    console.log(environment.token)
+    //console.log(environment.token)
     return this.http.post<Tema>('https://blogpessoalcaiquegenturma34.herokuapp.com/tema', tema, this.token)
   }
 
@@ -34,6 +34,12 @@ export class TemaService {
 
   deleteTema(id: number){
     return this.http.delete(`https://blogpessoalcaiquegenturma34.herokuapp.com/tema/${id}`, this.token)
+  }
+
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
   }
 
 
