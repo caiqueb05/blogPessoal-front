@@ -21,6 +21,10 @@ export class PostagemService {
     }
   }
 
+  getByIdPostagem(id: number): Observable<Postagem>{
+    return this.http.get<Postagem>(`https://blogpessoalcaiquegenturma34.herokuapp.com/postagens/${id}`)
+  }
+
   geAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>('https://blogpessoalcaiquegenturma34.herokuapp.com/postagens', this.token)
   }
@@ -29,4 +33,11 @@ export class PostagemService {
     return this.http.post<Postagem>('https://blogpessoalcaiquegenturma34.herokuapp.com/postagens/cadastrar', postagem, this.token)
   }
 
+  putPostagem(postagem: Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>('https://blogpessoalcaiquegenturma34.herokuapp.com/postagens/atualizar', postagem, this.token)
+  }
+
+  deletePostagem(id: number){
+    this.http.delete(`https://blogpessoalcaiquegenturma34.herokuapp.com/postagens/deletar/${id}`)
+  }
 }
