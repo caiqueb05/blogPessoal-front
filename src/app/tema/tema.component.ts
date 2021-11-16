@@ -20,6 +20,7 @@ export class TemaComponent implements OnInit {
     private temaService: TemaService
   ) { }
 
+
   ngOnInit(){
     if(environment.token == ''){
       //alert('Sua seção expirou, faça o login novamente.')
